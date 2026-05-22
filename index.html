@@ -3,68 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>达拉斯艺术博物馆 · 镇馆之宝</title>
+<title>达拉斯艺术博物馆 · 镇馆之宝全览</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
-    background: #f4f1ec;
-    color: #2b2620;
-    line-height: 1.75;
+    background: #f4f1ec; color: #2b2620; line-height: 1.75;
   }
   .hero {
     background: linear-gradient(135deg, #1a1410 0%, #3d2f22 60%, #6b4f33 100%);
-    color: #f4f1ec;
-    padding: 80px 24px 64px;
-    text-align: center;
+    color: #f4f1ec; padding: 80px 24px 60px; text-align: center;
   }
   .hero .kicker {
-    letter-spacing: 4px;
-    font-size: 13px;
-    color: #d4a857;
-    text-transform: uppercase;
-    margin-bottom: 16px;
+    letter-spacing: 4px; font-size: 13px; color: #d4a857;
+    text-transform: uppercase; margin-bottom: 16px;
   }
-  .hero h1 { font-size: 38px; font-weight: 700; margin-bottom: 14px; }
-  .hero p {
-    max-width: 620px; margin: 0 auto;
-    font-size: 15px; color: #cfc6b8;
+  .hero h1 { font-size: 36px; font-weight: 700; margin-bottom: 14px; }
+  .hero p { max-width: 640px; margin: 0 auto; font-size: 15px; color: #cfc6b8; }
+  .hero .stats {
+    display: flex; justify-content: center; gap: 36px; margin-top: 28px; flex-wrap: wrap;
   }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 56px 24px; }
+  .hero .stats div { text-align: center; }
+  .hero .stats .n { font-size: 26px; font-weight: 700; color: #d4a857; }
+  .hero .stats .l { font-size: 12px; color: #cfc6b8; letter-spacing: 1px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 52px 24px; }
+  .section-title {
+    font-size: 15px; letter-spacing: 2px; color: #9a8f7d;
+    text-transform: uppercase; margin: 8px 0 22px; font-weight: 700;
+  }
   .card {
     background: #fff; border-radius: 16px; overflow: hidden;
-    margin-bottom: 40px; box-shadow: 0 10px 30px rgba(40,30,15,0.08);
+    margin-bottom: 36px; box-shadow: 0 10px 30px rgba(40,30,15,0.08);
   }
   .card .imgbox { position: relative; }
-  .card .imgbox img {
-    width: 100%; height: 320px; object-fit: cover; display: block;
+  .card .imgbox img { width: 100%; height: 340px; object-fit: cover; display: block; }
+  .card .imgbox .ph {
+    width: 100%; height: 200px; display: flex; align-items: center;
+    justify-content: center; color: rgba(255,255,255,0.92);
+    font-size: 15px; font-weight: 600; letter-spacing: 1px; text-align: center; padding: 0 30px;
   }
+  .ph1 { background: linear-gradient(160deg,#8a5a3c,#c89368); }
+  .ph2 { background: linear-gradient(160deg,#3f5a6b,#7c9aab); }
+  .ph3 { background: linear-gradient(160deg,#6b4f7a,#9a7fb0); }
+  .ph4 { background: linear-gradient(160deg,#4a6b4f,#86a98b); }
+  .ph5 { background: linear-gradient(160deg,#7a3f3f,#b07f7f); }
   .card .imgbox .tag {
     position: absolute; left: 0; bottom: 0; right: 0;
-    padding: 28px 24px 16px; color: #fff; font-size: 22px; font-weight: 700;
+    padding: 30px 24px 14px; color: #fff; font-size: 20px; font-weight: 700;
     background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.72) 100%);
   }
   .num {
     display: inline-block; background: #d4a857; color: #1a1410;
-    border-radius: 50%; width: 30px; height: 30px;
-    line-height: 30px; text-align: center; font-weight: 700; margin-right: 10px;
+    border-radius: 50%; width: 28px; height: 28px;
+    line-height: 28px; text-align: center; font-weight: 700; margin-right: 10px; font-size: 14px;
   }
-  .card .body { padding: 24px 28px 28px; }
-  .card .body h2 { font-size: 19px; margin-bottom: 6px; }
-  .card .body .sub { color: #9a8f7d; font-size: 13px; margin-bottom: 14px; }
+  .card .body { padding: 22px 28px 26px; }
+  .card .body h2 { font-size: 18px; margin-bottom: 5px; }
+  .card .body .sub { color: #9a8f7d; font-size: 13px; margin-bottom: 12px; }
   .card .body p { font-size: 15px; color: #4a4338; }
   .card .body .why {
-    margin-top: 14px; padding: 12px 16px;
-    background: #f8f5ee; border-left: 3px solid #d4a857;
-    border-radius: 0 8px 8px 0; font-size: 14px;
+    margin-top: 12px; padding: 11px 15px; background: #f8f5ee;
+    border-left: 3px solid #d4a857; border-radius: 0 8px 8px 0; font-size: 14px;
   }
-  .card .imgcap {
-    font-size: 11px; color: #b3a994; padding: 6px 28px 0; font-style: italic;
-  }
-  .guide {
-    background: #2b2620; color: #f4f1ec;
-    border-radius: 16px; padding: 32px 28px;
-  }
+  .card .imgcap { font-size: 11px; color: #b3a994; padding: 6px 28px 0; font-style: italic; }
+  .guide { background: #2b2620; color: #f4f1ec; border-radius: 16px; padding: 32px 28px; }
   .guide h2 { font-size: 20px; margin-bottom: 18px; color: #d4a857; }
   .guide ul { list-style: none; }
   .guide li {
@@ -80,82 +82,177 @@
 
 <div class="hero">
   <div class="kicker">Dallas Museum of Art</div>
-  <h1>达拉斯艺术博物馆 · 镇馆之宝</h1>
-  <p>成立于 1903 年，馆藏约 2.4 万件、横跨五千年。常设展免费开放，是德州艺术区的核心。下面这四件，是到了别错过的。</p>
+  <h1>达拉斯艺术博物馆 · 镇馆之宝全览</h1>
+  <p>成立于 1903 年，坐落德州达拉斯艺术区。馆藏横跨五千年、逾 2.4 万件。常设展免费开放——下面这些是策展人与各路指南公认「到了别错过」的重点。</p>
+  <div class="stats">
+    <div><div class="n">1903</div><div class="l">创立年份</div></div>
+    <div><div class="n">24,000+</div><div class="l">馆藏件数</div></div>
+    <div><div class="n">5,000</div><div class="l">年代跨度（年）</div></div>
+    <div><div class="n">FREE</div><div class="l">常设展门票</div></div>
+  </div>
 </div>
 
 <div class="wrap">
+
+  <div class="section-title">★ 一·绝对核心 · 招牌之作</div>
 
   <div class="card">
     <div class="imgbox">
       <img src="img/icebergs.jpg" alt="The Icebergs">
       <div class="tag"><span class="num">1</span>《冰山》The Icebergs</div>
     </div>
-    <div class="imgcap">图：Frederic Edwin Church《The Icebergs》(1861)，Wikimedia Commons 公共领域</div>
+    <div class="imgcap">图：Frederic Edwin Church《The Icebergs》(1861)，DMA 藏品，Wikimedia Commons 公共领域</div>
     <div class="body">
       <h2>《冰山》The Icebergs</h2>
       <div class="sub">Frederic Edwin Church · 1861 · 哈德逊河画派</div>
-      <p>巨幅极地风景，气势磅礴。这幅画曾失踪一百多年，直到 1979 年才重新现身拍卖，被 DMA 收入囊中。如今几乎是博物馆的招牌之作。</p>
-      <div class="why">看点：画面尺度极大，冷峻光线和冰体质感是现场才震撼，照片拍不出。</div>
+      <p>博物馆头号招牌。傍晚阳光把冰山照得通透，海面泛着蓝绿光泽，前景一截断桅暗示危险。首展于南北战争募捐展，被誉为「美国迄今最辉煌的艺术品」。被英国铁路大亨买走后失踪一百多年，1970 年代重现并以破纪录价成交，匿名捐给 DMA。</p>
+      <div class="why">看点：尺幅极大，冷峻光线和冰体质感现场才震撼，照片拍不出。</div>
     </div>
   </div>
 
   <div class="card">
     <div class="imgbox">
-      <img src="img/reves.jpg" alt="Reves Collection">
-      <div class="tag"><span class="num">2</span>Reves 珍藏</div>
+      <img src="img/courbet.jpg" alt="Fox in the Snow">
+      <div class="tag"><span class="num">2</span>《雪中狐狸》Fox in the Snow</div>
     </div>
-    <div class="imgcap">图：梵高麦田主题作品，示意印象派藏品风格，Wikimedia Commons 公共领域</div>
+    <div class="imgcap">图：Gustave Courbet《Fox in the Snow》(1860)，DMA 藏品，Wikimedia Commons 公共领域</div>
     <div class="body">
-      <h2>Wendy and Emery Reves Collection</h2>
-      <div class="sub">印象派沉浸式展区 · 梵高 / 莫奈 / 雷诺阿 / 塞尚</div>
-      <p>一整片专属展区，复刻了 Reves 夫妇在法国南部别墅的房间，印象派名作就挂在「家」的环境里。跟常规白墙展厅完全不同，是个独立小天地。</p>
-      <div class="why">看点：人最多最堵，建议一进馆先冲这里，留足时间细品。</div>
+      <h2>《雪中狐狸》Fox in the Snow</h2>
+      <div class="sub">Gustave Courbet · 1860 · 法国写实主义</div>
+      <p>库尔贝写实主义代表作之一。一只狐狸在雪地里捕食，毛皮质感和雪地光影处理得极其扎实。它是 DMA 欧洲绘画板块里少有的「教科书级」名作，也是法国写实主义在馆内的标杆。</p>
+      <div class="why">看点：近看狐毛笔触，体会库尔贝「只画我亲眼所见」的写实信条。</div>
+    </div>
+  </div>
+
+  <div class="section-title">★ 二·跨文明重器</div>
+
+  <div class="card">
+    <div class="imgbox">
+      <div class="ph ph1">Olowe of Ise《持碗跪姿女像》<br>非洲约鲁巴木雕 · 现场感受</div>
+      <div class="tag"><span class="num">3</span>《持碗跪姿女像》Olumeye</div>
+    </div>
+    <div class="body">
+      <h2>《持碗跪姿女像》(Olumeye)</h2>
+      <div class="sub">Olowe of Ise · 约 1910–1938 · 尼日利亚约鲁巴</div>
+      <p>约鲁巴宫廷御用雕刻大师 Olowe of Ise 的彩绘木雕。表现约鲁巴待客礼仪——「带来荣耀的女人」捧着一只几何纹饰的木碗，碗底由一圈女性人像高举双手托起，其中一颗有胡须的头颅竟可活动。Olowe 的作品被欧美澳多家博物馆收藏。</p>
+      <div class="why">看点：DMA 非洲艺术板块的镇馆级雕塑，活动部件是设计巧思。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="imgbox">
+      <div class="ph ph2">无名工匠《天王像》Lokapala<br>8 世纪唐三彩 · 现场感受</div>
+      <div class="tag"><span class="num">4</span>《天王像》Lokapala</div>
+    </div>
+    <div class="body">
+      <h2>《天王像》Lokapala（护法天王）</h2>
+      <div class="sub">无名工匠 · 8 世纪初 · 中国唐代</div>
+      <p>一件 8 世纪初的中国佛教护法塑像，唐三彩工艺。融合道教与佛教图像——一名身披橘绿装饰铠甲的猛士，戴着奇幻的鸟形头盔，威风凛凛地踩在扭动的恶魔身上。是中国护法神俑里的精品。</p>
+      <div class="why">看点：作为中国人在异国看唐三彩，那份亲切和工艺自豪值得专程一站。</div>
     </div>
   </div>
 
   <div class="card">
     <div class="imgbox">
       <img src="img/ancient.jpg" alt="Ancient American Gold">
-      <div class="tag"><span class="num">3</span>美洲古代艺术</div>
+      <div class="tag"><span class="num">5</span>美洲古代金器</div>
     </div>
     <div class="imgcap">图：前哥伦布时期黄金工艺品，示意美洲古代金器收藏，Wikimedia Commons 公共领域</div>
     <div class="body">
       <h2>前哥伦布时期金器与玉器</h2>
       <div class="sub">中南美洲古代文明 · 全美顶尖收藏</div>
-      <p>黄金工艺品、玉器、陶器，工艺精细，年代久远。这块收藏在全美博物馆里都数得上号，是 DMA 真正的硬实力。</p>
-      <div class="why">看点：金器在灯光下的细节是亮点，搭配古代美洲文明背景一起看更有味。</div>
+      <p>黄金工艺品、玉器、陶器，工艺精细、年代久远。这块收藏在全美博物馆里都数得上号，是 DMA 真正的硬实力，常和古代地中海艺术并置展出。</p>
+      <div class="why">看点：金器在射灯下的细节是亮点，配合古代美洲文明背景一起看。</div>
+    </div>
+  </div>
+
+  <div class="section-title">★ 三·印象派与现当代</div>
+
+  <div class="card">
+    <div class="imgbox">
+      <img src="img/reves.jpg" alt="Reves Collection">
+      <div class="tag"><span class="num">6</span>Reves 珍藏</div>
+    </div>
+    <div class="imgcap">图：梵高麦田主题作品，示意印象派藏品风格，Wikimedia Commons 公共领域</div>
+    <div class="body">
+      <h2>Wendy and Emery Reves Collection</h2>
+      <div class="sub">印象派沉浸式展区 · 梵高 / 莫奈 / 雷诺阿 / 塞尚 / 高更</div>
+      <p>一整片专属展区，复刻 Reves 夫妇在法国南部别墅的房间，印象派与后印象派名作就挂在「家」的环境里。还配欧洲装饰艺术与家具，跟常规白墙展厅完全不同，是个独立小天地。</p>
+      <div class="why">看点：人最多最堵，建议一进馆先冲这里，留足时间细品。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="imgbox">
+      <div class="ph ph3">Rufino Tamayo《El Hombre（人）》<br>1953 三联可移动壁画 · 现场感受</div>
+      <div class="tag"><span class="num">7</span>《El Hombre（人）》</div>
+    </div>
+    <div class="body">
+      <h2>《El Hombre（人）》</h2>
+      <div class="sub">Rufino Tamayo · 1953 · 墨西哥现代主义</div>
+      <p>专为 DMA 委托创作的「可移动壁画」，由三大幅画板组成。一个巨大的红色抽象人形向上伸展，探入奇幻旋动的天空。塔马约擅长把立体主义等欧洲画风与墨西哥民俗主题揉在一起，整件作品透着一种魔幻的希望感。</p>
+      <div class="why">看点：DMA 拓展拉美艺术收藏的里程碑，尺幅震撼。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="imgbox">
+      <div class="ph ph4">Jaune Quick-to-See Smith<br>《Montana Memories: White Pine》1989 · 现场感受</div>
+      <div class="tag"><span class="num">8</span>《蒙大拿记忆：白松》</div>
+    </div>
+    <div class="body">
+      <h2>《Montana Memories: White Pine》</h2>
+      <div class="sub">Jaune Quick-to-See Smith · 1989 · 当代原住民艺术</div>
+      <p>开创性的多媒材艺术家、Salish 与 Kootenai 部族成员的代表作。抽象彩色矩形配上滴落的黑色线描——独木舟、老式系扣靴等 19 世纪物件，在赞颂当代原住民文化的同时审视美国充满问题的过去与现在。</p>
+      <div class="why">看点：当代板块里政治表达最有力的一件，抽象与拼贴结合。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="imgbox">
+      <div class="ph ph5">现当代展区<br>Mondrian · Rothko · Lichtenstein · Pollock</div>
+      <div class="tag"><span class="num">9</span>现当代名作群</div>
+    </div>
+    <div class="body">
+      <h2>现代与当代名作群</h2>
+      <div class="sub">蒙德里安 / 罗斯科 / 利希滕斯坦 / 波洛克 / 培根</div>
+      <p>1963 年 DMA 与达拉斯当代艺术博物馆合并后，一举拥有高更、雷东、马蒂斯、蒙德里安、Gerald Murphy、培根等重磅作品。如今现当代展区还有罗斯科的色域绘画、利希滕斯坦的波普名作，是一条完整的 20 世纪艺术线索。</p>
+      <div class="why">看点：行程末尾收尾看，从古代一路走到当代，情绪正好。</div>
     </div>
   </div>
 
   <div class="card">
     <div class="imgbox">
       <img src="img/african.jpg" alt="African Art">
-      <div class="tag"><span class="num">4</span>非洲艺术 & 现当代</div>
+      <div class="tag"><span class="num">10</span>非洲艺术整体收藏</div>
     </div>
     <div class="imgcap">图：非洲木雕，示意非洲艺术收藏，Wikimedia Commons 公共领域</div>
     <div class="body">
-      <h2>非洲面具雕塑 + 现代当代名作</h2>
-      <div class="sub">非洲艺术强项 · Pollock / Mondrian / Rothko</div>
-      <p>非洲面具与雕塑收藏厚实，是 DMA 的传统强项；现当代展区则有波洛克、蒙德里安、罗斯科等大师之作。</p>
-      <div class="why">看点：行程末尾收尾看，从古代一路走到当代，情绪正好。</div>
+      <h2>非洲艺术整体收藏</h2>
+      <div class="sub">面具 / 雕塑 / 金属工艺 · DMA 传统强项</div>
+      <p>除了 Olowe of Ise 的镇馆雕塑，DMA 整片非洲艺术展厅都很厚实——面具、人像、金属工艺横跨多个族群与世纪，是美国收藏非洲艺术的重要机构之一。</p>
+      <div class="why">看点：和约鲁巴木雕一起连着看，能感受非洲雕刻的多样性。</div>
     </div>
   </div>
 
   <div class="guide">
     <h2>怎么观看合适</h2>
     <ul>
-      <li><b>时长</b><span>常设馆藏 2–3 小时够；想细品 Reves 展区留半天。</span></li>
-      <li><b>路线</b><span>先冲 Reves 珍藏 + 《冰山》（最堵），再看古代美洲，最后扫现当代。</span></li>
+      <li><b>时长</b><span>常设馆藏认真看 3–4 小时；想细品 Reves 展区单独留半天。</span></li>
+      <li><b>路线</b><span>先冲 Reves 珍藏 + 《冰山》（最堵），再走非洲与古代美洲，最后扫现当代。</span></li>
       <li><b>省钱</b><span>常设展全程免费，只有特展收费——只看免费部分性价比极高。</span></li>
       <li><b>顺道</b><span>馆在 Dallas Arts District，旁边 Nasher 雕塑中心、Crow 亚洲艺术馆步行可达，可连看一天。</span></li>
-      <li><b>闭馆</b><span>周一闭馆。出发前上官网确认当天开放时间和当期特展。</span></li>
+      <li><b>交通</b><span>DART 轻轨 St. Paul 站、M-Line 复古电车都能直达。</span></li>
+      <li><b>闭馆</b><span>周一闭馆。出发前上官网 dma.org 确认当天时间和当期特展。</span></li>
     </ul>
   </div>
 
 </div>
 
-<footer>图文介绍 · 小K 整理 🐾 · 配图均取自 Wikimedia Commons 公共领域，为风格示意，藏品实物以馆方为准</footer>
+<footer>
+  图文介绍 · 小K 整理 🐾<br>
+  展品清单参考 DMA 策展人精选「10 Must-See Works」及英文维基。配图中《冰山》《雪中狐狸》为 DMA 真实藏品（Wikimedia 公共领域）；其余色块为示意，藏品实物以馆方为准。
+</footer>
 
 </body>
 </html>
